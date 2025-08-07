@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Wind, Zap, Volume2 } from "lucide-react";
 import heroFan from "@/assets/ventilateur.png";
+import leaf1 from "@/assets/f1.png";
+import leaf2 from "@/assets/f2.png";
 import OrderModal from "@/components/OrderModal";
 import SocialShare from "@/components/SocialShare";
 
@@ -19,6 +21,56 @@ const HeroSection = () => {
         <div className="absolute top-20 left-10 w-32 h-32 bg-fresh-blue rounded-full animate-float"></div>
         <div className="absolute bottom-20 right-10 w-24 h-24 bg-warm-orange rounded-full animate-float" style={{ animationDelay: '1s' }}></div>
         <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-fresh-blue-light rounded-full animate-float" style={{ animationDelay: '2s' }}></div>
+      </div>
+
+      {/* Animated Leaves */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Leaf 1 - Floating from right to left */}
+        <img 
+          src={leaf1} 
+          alt="Feuille animée" 
+          className="absolute w-12 h-12 opacity-60"
+          style={{
+            top: '20%',
+            right: '10%',
+            animation: 'leafFloat1 8s ease-in-out infinite'
+          }}
+        />
+        
+        {/* Leaf 2 - Floating from right to left */}
+        <img 
+          src={leaf2} 
+          alt="Feuille animée" 
+          className="absolute w-10 h-10 opacity-70"
+          style={{
+            top: '35%',
+            right: '25%',
+            animation: 'leafFloat2 10s ease-in-out infinite 2s'
+          }}
+        />
+        
+        {/* Additional leaves for more wind effect */}
+        <img 
+          src={leaf1} 
+          alt="Feuille animée" 
+          className="absolute w-11 h-11 opacity-50"
+          style={{
+            top: '60%',
+            right: '15%',
+            animation: 'leafFloat3 12s ease-in-out infinite 1s'
+          }}
+        />
+        
+        <img 
+          src={leaf2} 
+          alt="Feuille animée" 
+          className="absolute w-9 h-9 opacity-65"
+          style={{
+            top: '45%',
+            right: '5%',
+            animation: 'leafFloat4 9s ease-in-out infinite 3s'
+          }}
+        />
       </div>
 
       <div className="container mx-auto px-4 py-16 relative z-10">
