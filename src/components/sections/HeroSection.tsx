@@ -1,8 +1,17 @@
 import { Button } from "@/components/ui/button";
 import { Wind, Zap, Volume2 } from "lucide-react";
-import heroFan from "@/assets/hero-fan.jpg";
+import heroFan from "@/assets/ventilateur.png";
+import OrderModal from "@/components/OrderModal";
+import SocialShare from "@/components/SocialShare";
 
 const HeroSection = () => {
+  const scrollToFeatures = () => {
+    const featuresSection = document.querySelector('[data-section="features"]');
+    if (featuresSection) {
+      featuresSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="relative min-h-screen bg-gradient-hero overflow-hidden">
       {/* Background decoration */}
@@ -36,10 +45,6 @@ const HeroSection = () => {
                 <span className="font-medium">Ultra-portable</span>
               </div>
               <div className="flex items-center gap-2 text-fresh-blue">
-                <Zap className="w-5 h-5" />
-                <span className="font-medium">8h d'autonomie</span>
-              </div>
-              <div className="flex items-center gap-2 text-fresh-blue">
                 <Volume2 className="w-5 h-5 opacity-50" />
                 <span className="font-medium">Silencieux</span>
               </div>
@@ -47,18 +52,30 @@ const HeroSection = () => {
 
             {/* CTA Buttons */}
             <div className="space-y-4 sm:space-y-0 sm:space-x-4 sm:flex items-center justify-center lg:justify-start">
-              <Button variant="hero" size="lg" className="text-lg px-8 py-6 w-full sm:w-auto">
-                Je Veux Ma Fraîcheur
-              </Button>
-              <Button variant="outline-fresh" size="lg" className="text-lg px-8 py-6 w-full sm:w-auto">
+              <OrderModal>
+                <Button variant="hero" size="lg" className="text-lg px-8 py-6 w-full sm:w-auto">
+                  Je Veux Ma Fraîcheur
+                </Button>
+              </OrderModal>
+              <Button 
+                variant="outline-fresh" 
+                size="lg" 
+                className="text-lg px-8 py-6 w-full sm:w-auto"
+                onClick={scrollToFeatures}
+              >
                 Découvrir les Avantages
               </Button>
+            </div>
+
+            {/* Social Share */}
+            <div className="flex justify-center lg:justify-start">
+              <SocialShare variant="ghost" size="sm" />
             </div>
 
             {/* Special Offer Badge */}
             <div className="inline-flex items-center gap-2 bg-warm-orange/10 text-warm-orange px-4 py-2 rounded-full border border-warm-orange/20">
               <span className="w-2 h-2 bg-warm-orange rounded-full animate-pulse"></span>
-              <span className="font-semibold">Offre Limitée: -50% Aujourd'hui</span>
+              <span className="font-semibold">Offre Limité</span>
             </div>
           </div>
 
@@ -70,19 +87,6 @@ const HeroSection = () => {
                 alt="Ventilateur mini portable" 
                 className="w-full max-w-lg mx-auto animate-float drop-shadow-2xl"
               />
-              
-              {/* Floating elements around the fan */}
-              <div className="absolute -top-8 -right-8 bg-fresh-blue text-white px-4 py-2 rounded-lg shadow-lg animate-float" style={{ animationDelay: '0.5s' }}>
-                <span className="font-bold">3 Vitesses</span>
-              </div>
-              
-              <div className="absolute -bottom-4 -left-8 bg-success-green text-white px-4 py-2 rounded-lg shadow-lg animate-float" style={{ animationDelay: '1.5s' }}>
-                <span className="font-bold">USB-C</span>
-              </div>
-              
-              <div className="absolute top-1/2 -right-12 bg-warm-orange text-white px-3 py-1 rounded-lg shadow-lg animate-float" style={{ animationDelay: '2.5s' }}>
-                <span className="font-bold text-sm">Silencieux</span>
-              </div>
             </div>
           </div>
         </div>

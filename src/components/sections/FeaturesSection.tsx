@@ -1,4 +1,6 @@
 import { Smartphone, Battery, Wind, Volume2, Palette, Zap } from "lucide-react";
+import posImage from "@/assets/pos.jpg";
+import jolieImage from "@/assets/jolie.jpg";
 
 const FeaturesSection = () => {
   const features = [
@@ -22,7 +24,7 @@ const FeaturesSection = () => {
     },
     {
       icon: <Wind className="w-8 h-8" />,
-      title: "3 Vitesses Réglables",
+      title: "Vitesses Réglables",
       description: "De la brise légère pour la concentration à un souffle puissant pour un soulagement immédiat.",
       color: "text-fresh-blue"
     },
@@ -41,7 +43,7 @@ const FeaturesSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-background">
+    <section className="py-20 bg-background" data-section="features">
       <div className="container mx-auto px-4">
         <div className="text-center space-y-4 mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">
@@ -53,44 +55,98 @@ const FeaturesSection = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
-            <div 
-              key={index}
-              className="bg-card p-8 rounded-xl shadow-lg hover:shadow-fresh transition-all duration-300 transform hover:-translate-y-2 border border-border group"
-            >
-              <div className={`${feature.color} mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                {feature.icon}
-              </div>
-              <h3 className="text-xl font-semibold text-foreground mb-4">
-                {feature.title}
-              </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                {feature.description}
-              </p>
+          {/* Première carte */}
+          <div 
+            className="bg-card p-8 rounded-xl shadow-lg hover:shadow-fresh transition-all duration-300 transform hover:-translate-y-2 border border-border group h-64"
+          >
+            <div className="text-fresh-blue mb-6 group-hover:scale-110 transition-transform duration-300">
+              <Smartphone className="w-8 h-8" />
             </div>
-          ))}
+            <h3 className="text-xl font-semibold text-foreground mb-4">
+              Ultra-Portable et Léger
+            </h3>
+            <p className="text-muted-foreground leading-relaxed">
+              Glissez-le dans votre sac et oubliez-le... jusqu'à ce que la chaleur monte.
+            </p>
+          </div>
+
+          {/* Image jolie.jpg remplace la deuxième carte */}
+          <div className="bg-card rounded-xl shadow-lg hover:shadow-fresh transition-all duration-300 transform hover:-translate-y-2 border border-border group overflow-hidden h-64">
+            <img 
+              src={jolieImage} 
+              alt="Image jolie" 
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+
+          {/* Troisième carte */}
+          <div 
+            className="bg-card p-8 rounded-xl shadow-lg hover:shadow-fresh transition-all duration-300 transform hover:-translate-y-2 border border-border group h-64"
+          >
+            <div className="text-warm-orange mb-6 group-hover:scale-110 transition-transform duration-300">
+              <Zap className="w-8 h-8" />
+            </div>
+            <h3 className="text-xl font-semibold text-foreground mb-4">
+              Rechargeable par USB
+            </h3>
+            <p className="text-muted-foreground leading-relaxed">
+              Branchez-le sur votre ordinateur, batterie externe ou prise murale. Simple et universel.
+            </p>
+          </div>
+
+          {/* Quatrième carte */}
+          <div 
+            className="bg-card p-8 rounded-xl shadow-lg hover:shadow-fresh transition-all duration-300 transform hover:-translate-y-2 border border-border group h-64"
+          >
+            <div className="text-fresh-blue mb-6 group-hover:scale-110 transition-transform duration-300">
+              <Wind className="w-8 h-8" />
+            </div>
+            <h3 className="text-xl font-semibold text-foreground mb-4">
+              Vitesses Réglables
+            </h3>
+            <p className="text-muted-foreground leading-relaxed">
+              De la brise légère pour la concentration à un souffle puissant pour un soulagement immédiat.
+            </p>
+          </div>
+
+          {/* Cinquième carte */}
+          <div 
+            className="bg-card p-8 rounded-xl shadow-lg hover:shadow-fresh transition-all duration-300 transform hover:-translate-y-2 border border-border group h-64"
+          >
+            <div className="text-fresh-blue mb-6 group-hover:scale-110 transition-transform duration-300">
+              <Palette className="w-8 h-8" />
+            </div>
+            <h3 className="text-xl font-semibold text-foreground mb-4">
+              Design Élégant et Moderne
+            </h3>
+            <p className="text-muted-foreground leading-relaxed">
+              Un accessoire stylé qui complète votre espace de travail ou votre tenue.
+            </p>
+          </div>
+
+          {/* Sixième carte */}
+          <div 
+            className="bg-card p-8 rounded-xl shadow-lg hover:shadow-fresh transition-all duration-300 transform hover:-translate-y-2 border border-border group h-64"
+          >
+            <div className="text-muted-foreground mb-6 group-hover:scale-110 transition-transform duration-300">
+              <Volume2 className="w-8 h-8 opacity-50" />
+            </div>
+            <h3 className="text-xl font-semibold text-foreground mb-4">
+              Fonctionnement Silencieux
+            </h3>
+            <p className="text-muted-foreground leading-relaxed">
+              Restez au frais sans déranger vos collègues ou perturber votre sommeil.
+            </p>
+          </div>
         </div>
 
-        {/* Stats Section */}
-        <div className="mt-16 bg-gradient-fresh rounded-2xl p-8 text-white text-center">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <div className="text-3xl font-bold mb-2">8h</div>
-              <div className="text-white/80">Autonomie</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold mb-2">3</div>
-              <div className="text-white/80">Vitesses</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold mb-2">200g</div>
-              <div className="text-white/80">Poids plume</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold mb-2">30dB</div>
-              <div className="text-white/80">Silencieux</div>
-            </div>
-          </div>
+        {/* Image pos.png remplace la section des statistiques */}
+        <div className="mt-16 text-center">
+          <img 
+            src={posImage} 
+            alt="Femme utilisant un ventilateur portable sur une terrasse" 
+            className="w-full max-w-4xl mx-auto rounded-2xl shadow-lg"
+          />
         </div>
       </div>
     </section>

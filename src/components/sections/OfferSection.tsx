@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Clock, TrendingDown, Package } from "lucide-react";
 import { useState, useEffect } from "react";
+import OrderModal from "@/components/OrderModal";
 
 const OfferSection = () => {
   const [timeLeft, setTimeLeft] = useState({
@@ -38,23 +39,20 @@ const OfferSection = () => {
               <h2 className="text-3xl md:text-4xl font-bold mb-2">
                 Offre de Lancement Exceptionnelle !
               </h2>
-              <p className="text-lg text-white/90">
+              {/* <p className="text-lg text-white/90">
                 -50% et Livraison Gratuite Aujourd'hui Seulement !
-              </p>
+              </p> */}
             </div>
 
             <div className="p-8 space-y-8">
               {/* Price Section */}
               <div className="text-center space-y-4">
                 <div className="flex items-center justify-center gap-4">
-                  <span className="text-3xl text-muted-foreground line-through">79€</span>
-                  <span className="text-5xl font-bold text-fresh-blue">39€</span>
-                  <div className="bg-warm-orange text-white px-3 py-1 rounded-full text-sm font-bold">
-                    -50%
-                  </div>
+                  {/* <span className="text-3xl text-muted-foreground line-through">79€</span> */}
+                  <span className="text-5xl font-bold text-fresh-blue">25 dinars</span>
                 </div>
                 <p className="text-muted-foreground">
-                  Livraison gratuite incluse • Garantie 30 jours satisfait ou remboursé
+                  Livraison gratuite incluse
                 </p>
               </div>
 
@@ -113,33 +111,27 @@ const OfferSection = () => {
 
               {/* CTA Button */}
               <div className="text-center">
-                <Button 
-                  variant="cta" 
-                  size="lg" 
-                  className="text-xl px-12 py-8 w-full md:w-auto animate-pulse-glow"
-                >
-                  <TrendingDown className="w-6 h-6 mr-2" />
-                  Oui, Je Profite de -50% !
-                </Button>
-                <p className="text-sm text-muted-foreground mt-4">
-                  Paiement 100% sécurisé • Livraison en 48h
-                </p>
+                <OrderModal>
+                  <Button 
+                    variant="cta" 
+                    size="lg" 
+                    className="text-xl px-12 py-8 w-full md:w-auto animate-pulse-glow"
+                  >
+                    <TrendingDown className="w-6 h-6 mr-2" />
+                    Oui, Je Profite !
+                  </Button>
+                </OrderModal>
+               
               </div>
 
               {/* Trust Indicators */}
               <div className="flex justify-center gap-8 text-sm text-muted-foreground">
-                <div className="flex items-center gap-1">
-                  <div className="w-2 h-2 bg-success-green rounded-full"></div>
-                  <span>SSL Sécurisé</span>
-                </div>
+                
                 <div className="flex items-center gap-1">
                   <div className="w-2 h-2 bg-success-green rounded-full"></div>
                   <span>Livraison 48h</span>
                 </div>
-                <div className="flex items-center gap-1">
-                  <div className="w-2 h-2 bg-success-green rounded-full"></div>
-                  <span>30j Garantie</span>
-                </div>
+                
               </div>
             </div>
           </div>

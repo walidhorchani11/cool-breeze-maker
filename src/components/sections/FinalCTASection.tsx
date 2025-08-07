@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Star, Wind } from "lucide-react";
+import OrderModal from "@/components/OrderModal";
+import SocialShare from "@/components/SocialShare";
 
 const FinalCTASection = () => {
   return (
@@ -29,56 +31,61 @@ const FinalCTASection = () => {
             <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20">
               <Star className="w-8 h-8 mb-3 mx-auto" />
               <h3 className="font-semibold mb-2">Efficacité Prouvée</h3>
-              <p className="text-white/80 text-sm">Plus de 5000 clients satisfaits</p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20">
               <Wind className="w-8 h-8 mb-3 mx-auto" />
               <h3 className="font-semibold mb-2">Ultra-Portable</h3>
-              <p className="text-white/80 text-sm">8h d'autonomie, 3 vitesses</p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20">
               <ArrowRight className="w-8 h-8 mb-3 mx-auto" />
               <h3 className="font-semibold mb-2">Livraison Rapide</h3>
-              <p className="text-white/80 text-sm">Chez vous en 48h maximum</p>
             </div>
           </div>
 
           {/* Final Offer Reminder */}
           <div className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20 mb-8">
             <div className="flex items-center justify-center gap-4 mb-4">
-              <span className="text-2xl line-through text-white/60">79€</span>
-              <span className="text-4xl font-bold">39€</span>
-              <div className="bg-warm-orange text-white px-4 py-2 rounded-full text-lg font-bold">
-                -50%
-              </div>
+              <span className="text-4xl font-bold">25 dinars</span>
             </div>
             <p className="text-white/90 mb-6">
-              Offre de lancement limitée • Livraison gratuite incluse • Garantie 30 jours
+              Offre limitée • Livraison gratuite incluse
             </p>
           </div>
 
           {/* Final CTA */}
           <div className="space-y-6">
-            <Button 
-              variant="cta" 
-              size="lg" 
-              className="text-xl px-12 py-8 bg-white text-fresh-blue hover:bg-white/90 hover:text-fresh-blue-dark shadow-2xl transform hover:scale-105 transition-all duration-300"
-            >
-              <ArrowRight className="w-6 h-6 mr-2" />
-              Commander Mon Ventilateur Mini Portable
-            </Button>
+            <OrderModal triggerClassName="fixed bottom-4 left-4 right-4 z-50 md:static md:bottom-auto md:left-auto md:right-auto">
+              <Button 
+                variant="cta" 
+                size="lg" 
+                className="text-xl px-12 py-8 bg-white text-fresh-blue hover:bg-white/90 hover:text-fresh-blue-dark shadow-2xl transform hover:scale-105 transition-all duration-300 w-full"
+              >
+                <ArrowRight className="w-6 h-6 mr-2" />
+                Commander Mon Ventilateur Portable
+              </Button>
+            </OrderModal>
             
             <div className="flex justify-center gap-6 text-sm text-white/70">
-              <span>✓ Paiement sécurisé</span>
               <span>✓ Livraison 48h</span>
-              <span>✓ Satisfait ou remboursé</span>
+            </div>
+          </div>
+
+          {/* Social Share Section */}
+          <div className="pt-8 border-t border-white/20">
+            <div className="space-y-4">
+              <p className="text-white/80">
+                Partagez cette découverte avec vos amis !
+              </p>
+              <div className="flex justify-center">
+                <SocialShare variant="outline" size="lg" className="bg-white/10 text-white border-white/20 hover:bg-white/20" />
+              </div>
             </div>
           </div>
 
           {/* Urgency Message */}
           <div className="pt-8 border-t border-white/20">
             <p className="text-white/80 italic">
-              "Les stocks sont limités et l'offre -50% se termine bientôt. 
+              "Les stocks sont limités et l'offre se termine bientôt. 
               Ne ratez pas cette opportunité de transformer votre été !"
             </p>
           </div>
